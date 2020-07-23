@@ -1,0 +1,77 @@
+{
+    "name": "Student 1",
+    "department": "cse",
+    "section": "A",
+    "reference_gather": {
+        "1": {
+            "teacher_name": "Teacher 1",
+            "subject": "Database",
+            "degree": "Phd"
+        },
+        "2": {
+            "teacher_name": "Teacher 2",
+            "subject": "OOD",
+            "degree": "ME"
+        },
+        "3": {
+            "teacher_name": "Teacher 3",
+            "subject": "Operating System",
+            "degree": "ME"
+        }
+    }
+}
+
+---------------------------------------------------
+db.students.insertMany([{
+    "name": "Student 2",
+    "department": "IT",
+    "section": "A", 
+},
+{
+    "name": "Student 3",
+    "department": "MECH",
+    "section": "A", 
+},
+{
+    "name": "Student 4",
+    "department": "CIVIL",
+    "section": "A", 
+}])
+--------------------------------------------------
+db.students.updateOne(
+{
+    "department": "MECH"
+},
+{
+    $set: {
+        "reference_gather": {
+            "2": {
+                "teacher_name": "Teacher 11",
+                "subject": "Atomic",
+                "degree": "Phd"
+            }
+        }
+    }
+}
+)
+
+db.students.updateOne({
+    "department": "cse"
+},
+{
+    $set: {
+        "name": "Student 1",
+        "department": "IT",
+        "section": "A",
+    }
+})
+-----------------------------------------------
+ db.students.find({"department": "MECH"}).pretty()
+
+-----------------------------------------------
+Descending  
+db.students.find().sort({"department":-1}).pretty()
+
+Ascending
+db.students.find().sort({"department":1}).pretty()
+-----------------------------------------------
