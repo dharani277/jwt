@@ -1,0 +1,9 @@
+http://localhost:5000
+
+POST ----> /login
+GET ----> /login
+PUT ----> /login/id
+DELETE ----> /login/id
+
+(POST)  REGISTER ----> /register
+(POST)  LOGIN ----> /loginform
